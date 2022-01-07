@@ -3,7 +3,7 @@ import React from 'react'
 export default function TodoList() {
     return (
         <div>
-            Timer
+          <h3>ŻEBY BYŁ ŁADNIE</h3> 
         </div>
     )
 }
