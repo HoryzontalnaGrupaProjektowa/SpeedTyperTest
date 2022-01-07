@@ -1,0 +1,1 @@
+Simple web app that will let you test your typing speed created using React.js and hosted on Firebase.
