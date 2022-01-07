@@ -28,9 +28,9 @@ export default class Timer extends React.Component{
     render(){
         let {count} = this.state;
         return (
-        <>
-            {this.fmtMSS(count)}
-        </>
+            <div className="Timer">
+                {this.fmtMSS(count)}
+            </div>
         )
     }
 }

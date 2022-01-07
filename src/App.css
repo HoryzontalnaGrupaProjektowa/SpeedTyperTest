@@ -1,5 +1,5 @@
 .App {
-  background-color: #282c34;
+  background-color: #333333;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -7,4 +7,55 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.Container{
+  background-color: #4fbdf0;
+  padding: 1rem;
+  border-radius: .5rem;
+  width: 700px;
+  max-width: 90%;
+}
+
+.TextDisplay{
+  margin-bottom: 1rem;
+  margin-left: calc(1rem + 2px);
+  margin-right: calc(1rem + 2px);
+  font-size: 1.5rem;
+  color: black;
+}
+
+.TextInput{
+  background-color: transparent;
+  border: 2px solid #3686ac;
+  outline: none;
+  width: 100%;
+  height: 10rem;
+  margin: auto;
+  resize: none;
+  padding: .5rem 1rem;
+  font-size: 1.5rem;
+  border-radius: .5rem;
+}
+
+.TextInput:focus {
+  border-color: #255b74;
+}
+
+.Title{
+  position: absolute;
+  top: 2rem;
+  font-size: 4rem;
+  color: #4fbdf0;
+  font-weight: bold;
+}
+
+.Timer{
+  position: absolute;
+  top: 12rem;
+  font-size: 4rem;
+  color: #4fbdf0;
+  font-weight: bold;
 }
