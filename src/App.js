@@ -1,12 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Timer from './Timer';
 import TextDisplay from './TextDisplay.js';
 import TextInput from './TextInput';
-
-import Button from 'react-bootstrap/Button';
 
 import { initializeApp } from 'firebase/app';
 
@@ -22,15 +20,24 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 function App() {
+  const [gameStarted, setGameStarted] = useState(false)
+  const [gameOver, setGameOver] = useState(false)
+
   return (
     <div className='App'>
       <h1 className='Title'>SpeedTyper</h1>
-      <Timer />
-      <div className='Container'>
-        <TextDisplay />
-        <TextInput />
+      {gameStarted ? (
+          <div>
+          <Timer />
+          <div className='Container'>
+            <TextDisplay />
+            <TextInput />
+          </div>
+        </div>
+      ) : (
+        <button onClick={() => setGameStarted(true)}>Klikaj</button>
+      ) }
       </div>
-    </div>
   )
 }
 
