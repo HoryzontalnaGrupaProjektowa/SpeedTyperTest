@@ -1,16 +1,31 @@
-import React from 'react'
-import axios from "axios"
+import React from "react";
 
-const RANDOM_QUOTE_API_URL = 'http://api.quotable.io/random?minLength=200&maxLength=250'
+export default class FetchRandomUser extends React.Component {
+  state = {
+    loading: true,
+    quote: null
+  };
 
-const fetchData = () => {
-    return axios.get(RANDOM_QUOTE_API_URL)
-          .then((response) => console.log(response.data));}
+  async componentDidMount() {
+    const url = 'http://api.quotable.io/random?minLength=200&maxLength=250';
+    const response = await fetch(url);
+    const data = await response.json();
+    this.setState({ quote: data.content, loading: false });
+  }
 
-export default function TextDisplay() {
+  render() {
+    if (this.state.loading) {
+      return <div>Loading quote...</div>;
+    }
+
+    if (!this.state.quote) {
+      return <div>Error: Didn't get any quote</div>;
+    }
 
     return (
-        <div className='TextDisplay'>
-        </div>
-    )
+      <div>
+        <div>{this.state.quote}</div>
+      </div>
+    );
+  }
 }

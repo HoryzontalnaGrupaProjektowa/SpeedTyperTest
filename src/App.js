@@ -38,7 +38,7 @@ function App() {
         </div>
       ) : (
         <div>
-          <h2>Kliknij przycisk start aby rozpocząć grę!</h2>
+          <h2>Press start to begin test and see how fast you can type!</h2>
           <Button variant="primary" size="lg" onClick={() => setGameStarted(true)}>Start</Button>
         </div>
       ) }
