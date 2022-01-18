@@ -60,3 +60,12 @@
   color: #4fbdf0;
   font-weight: bold;
 }
+
+
+.ok {
+  color: green
+}
+
+.bad {
+  color: red
+}
