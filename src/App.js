@@ -8,6 +8,8 @@ import TextInput from './TextInput';
 
 import { initializeApp } from 'firebase/app';
 
+import { Button } from 'react-bootstrap';
+
 const firebaseConfig = {
   apiKey: "AIzaSyCqbqJcbImOB6Eseqx8MFqVlVRRBZ0JViQ",
   authDomain: "speedtypertest.firebaseapp.com",
@@ -35,7 +37,10 @@ function App() {
           </div>
         </div>
       ) : (
-        <button onClick={() => setGameStarted(true)}>Klikaj</button>
+        <div>
+          <h2>Kliknij przycisk start aby rozpocząć grę!</h2>
+          <Button variant="primary" size="lg" onClick={() => setGameStarted(true)}>Start</Button>
+        </div>
       ) }
       </div>
   )
