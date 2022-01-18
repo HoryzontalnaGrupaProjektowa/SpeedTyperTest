@@ -1,36 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-export default class Timer extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={
-            count:60
-        }
-    }
-    componentDidMount(){
-       this.Timer =  setInterval(()=>{
-            let {count} = this.state;
-            this.setState({
-                count: count-1
-            })
-        },1000)
-    }
-    componentDidUpdate(prevProps, prevState, snapshot){
-        if(prevState.count !==this.state.count && this.state.count === 0){
-            clearInterval(this.Timer)
-        }
-    }
-
-     fmtMSS(s) {
-        return(s-(s%=60))/60+(9<s?':':':0')+s
-        
-    }
-    render(){
-        let {count} = this.state;
+    const Timer = (props:any) => {
+        const {initialMinute = 0,initialSeconds = 10} = props;
+        const [ minutes, setMinutes ] = useState(initialMinute);
+        const [seconds, setSeconds ] =  useState(initialSeconds);
+        useEffect(()=>{
+        let myInterval = setInterval(() => {
+                if (seconds > 0) {
+                    setSeconds(seconds - 1);
+                }
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        clearInterval(myInterval)
+                    } else {
+                        setMinutes(minutes - 1);
+                        setSeconds(59);
+                    }
+                } 
+            }, 1000)
+            return ()=> {
+                clearInterval(myInterval);
+              };
+        });
+    
         return (
-            <div className="Timer">
-                {this.fmtMSS(count)}
+            <div>
+            { minutes === 0 && seconds === 0
+                ? null
+                : <h1> {minutes}:{seconds < 10 ?  `0${seconds}` : seconds}</h1> 
+            }
             </div>
         )
     }
-}
+    
+    export default Timer;
