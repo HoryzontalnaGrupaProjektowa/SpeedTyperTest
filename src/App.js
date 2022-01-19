@@ -27,7 +27,7 @@ const gameStateDictionary = {
   ended: 'Ended'
 };
 
-const defaultTimerTime = 60
+const defaultTimerTime = 10
 
 function App() {
   const [gameState, setGameState] = useState(gameStateDictionary.before)
@@ -61,7 +61,7 @@ function App() {
       case gameStateDictionary.before:
         return (
           <div>
-            <h2>Press start to begin test and see how fast you can type!</h2>
+            <h1>Press start to begin test and see how fast you can type!</h1>
             <Button variant="primary" size="lg" onClick={() => setGameState(gameStateDictionary.started)}>Start</Button>
           </div>)
       case gameStateDictionary.started:
@@ -73,7 +73,8 @@ function App() {
         </div>)
       case gameStateDictionary.ended:
         return (<div>
-          END
+          <h1>Your test results</h1>
+          <h2>WPM: {wordCount}</h2>
         </div>)
     }
   }

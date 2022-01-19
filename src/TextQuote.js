@@ -20,7 +20,7 @@ const FetchRandomQuote = ({
   }
 
   useEffect(async () => {
-    const url = 'http://api.quotable.io/random?minLength=200&maxLength=250';
+    const url = 'https://api.quotable.io/random?minLength=200&maxLength=250';
     const response = await fetch(url);
     const data = await response.json();
 
@@ -69,7 +69,6 @@ const FetchRandomQuote = ({
   return (
     <div>
      <div>{quoteCharsArray.map((char, index) => <span key={index} className={getClass(index)}>{char}</span>)}</div>
-      <hr/>
       <TextInput setUserQuote={setUserQuote}  value={quotes.userQuote}/>
     
     </div>
